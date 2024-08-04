@@ -85,3 +85,5 @@ create index idx_books_publisher on Books(publisher);
 
 alter table Members
     add constraint unique_email Unique (email);
+
+-- Updated --
