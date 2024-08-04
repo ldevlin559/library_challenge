@@ -1,5 +1,3 @@
-Flyway.repair()
-
 create table Members (
     id int AUTO_INCREMENT PRIMARY KEY,
     first_name varchar(255) not null,

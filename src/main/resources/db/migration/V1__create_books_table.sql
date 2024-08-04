@@ -1,5 +1,3 @@
-Flyway.repair()
-
 create table Books (
     id int AUTO_INCREMENT PRIMARY KEY,
     title varchar(255) NOT NULL,
