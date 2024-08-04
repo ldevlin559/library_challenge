@@ -20,4 +20,3 @@ values (1, 2, current_date(), '2024-12-21'),
        (1, 1, current_date(), '2024-11-20'),
        (3, 1, current_date(), '2024-11-20'),
        (2,3, current_date(), '2025-01-02');
-
