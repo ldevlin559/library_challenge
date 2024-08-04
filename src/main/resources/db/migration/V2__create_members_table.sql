@@ -12,3 +12,5 @@ insert into Members(first_name, last_name, address, phone, email, register_date)
 VALUES('Luke', 'Devlin', '38 Drummmond Pk', 07738424690, 'ldevlin@hotmail.com', current_date()),
       ('John', 'Hutchman', '123 Shantallow', 07732456789, 'johnh@gmail.com', CURRENT_DATE()),
       ('Megan', 'Doherty', '345 Culmore rd', 07756789033, 'megand@outlook.com', current_date());
+
+Flyway.repair()
