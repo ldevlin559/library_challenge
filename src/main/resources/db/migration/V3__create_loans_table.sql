@@ -1,9 +1,9 @@
 create table Loans
 (
-    id          int AUTO_INCREMENT PRIMARY KEY,
-    member_id   int  not null,
-    book_id     int  not null,
-    loan_date   date not null,
+    id int AUTO_INCREMENT PRIMARY KEY,
+    member_id int  not null,
+    book_id int  not null,
+    loan_date date not null,
     return_date date not null,
 
     FOREIGN KEY (member_id) REFERENCES Members (id),
