@@ -20,3 +20,33 @@ values (1, 2, current_date(), '2024-12-21'),
        (1, 1, current_date(), '2024-11-20'),
        (3, 1, current_date(), '2024-11-20'),
        (2,3, current_date(), '2025-01-02');
+
+select group_concat(Books.title separator ', ') as `Book Title`, concat(Members.first_name, ' ', Members.last_name) as `Name`
+from Loans
+         join Books on book_id = Books.id
+         join Members on member_id = Members.id
+group by Members.id;
+
+select concat(Members.first_name, ' ', Members.last_name) as `Name`, group_concat(Books.title separator ', ') as `Books`
+from Loans
+         join Books on book_id = Books.id
+         join Members on member_id = Members.id
+where return_date is null or return_date > current_date()
+group by member_id;
+
+select count(book_id) as `Number of Loans`, Books.publisher as `Publisher`
+from Loans
+         join Books on book_id = Books.id
+group by book_id
+order by book_id asc
+    limit 1;
+
+select count(book_id) as `Number of Loans`, Books.publisher as `Publisher`
+from Loans
+         join Books on book_id = Books.id
+group by book_id
+order by book_id desc
+    limit 1;
+
+select Books.title as `Book Title`, case when available > 0 then 'Available' else 'Not Available' end as 'Availability'
+from Books;
