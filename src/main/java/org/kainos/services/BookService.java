@@ -9,7 +9,7 @@ import java.util.List;
 public class BookService {
     BookDao bookDao;
 
-    public BookService(BookDao bookDao) {
+    public BookService(final BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
@@ -17,7 +17,7 @@ public class BookService {
         return bookDao.getAllBooks();
     }
 
-    public Book getBookById(int id) throws SQLException {
+    public Book getBookById(final int id) throws SQLException {
         return bookDao.getBookById(id);
     }
 }

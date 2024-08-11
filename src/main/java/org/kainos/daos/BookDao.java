@@ -19,7 +19,8 @@ public class BookDao {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery(
-                    "SELECT id as `BookID`, title, author, publisher, price FROM Books");
+                    "SELECT id as `BookID`, title, author,"
+                            + "publisher, price FROM Books");
 
             while (resultSet.next()) {
                 Book book = new Book(
@@ -35,10 +36,11 @@ public class BookDao {
         return books;
     }
 
-    public Book getBookById(int bookID) throws SQLException {
+    public Book getBookById(final int bookID) throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String query =
-                    "SELECT id as `BookID`, title, author, publisher, price FROM Books WHERE id = ?";
+                    "SELECT id as `BookID`, title, author,"
+                            + "publisher, price FROM Books WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setInt(1, bookID);

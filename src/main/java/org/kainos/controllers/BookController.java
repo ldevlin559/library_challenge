@@ -16,7 +16,7 @@ public class BookController {
 
     BookService bookService;
 
-    public BookController(BookService bookService) {
+    public BookController(final BookService bookService) {
         this.bookService = bookService;
     }
 
@@ -29,7 +29,8 @@ public class BookController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getBookById(@PathParam("id") int id) throws SQLException {
+    public Response getBookById(@PathParam("id") final int id)
+            throws SQLException {
         return Response.ok().entity(bookService.getBookById(id)).build();
     }
 }
