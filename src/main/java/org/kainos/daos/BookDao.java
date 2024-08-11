@@ -1,5 +1,7 @@
 package org.kainos.daos;
 
+import org.kainos.models.Book;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,19 +10,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.kainos.models.Book;
-
 public class BookDao {
 
     public List<Book> getAllBooks() throws SQLException {
         List<Book> books = new ArrayList<>();
 
-        try(Connection connection = DatabaseConnector.getConnection()) {
+        try (Connection connection = DatabaseConnector.getConnection()) {
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT id as `BookID`, title, author, publisher, price FROM Books");
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT id as `BookID`, title, author, publisher, price FROM Books");
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Book book = new Book(
                         resultSet.getInt("BookID"),
                         resultSet.getString("title"),
@@ -28,22 +29,23 @@ public class BookDao {
                         resultSet.getString("publisher"),
                         resultSet.getDouble("price"));
 
-                        books.add(book);
+                books.add(book);
             }
         }
         return books;
     }
 
     public Book getBookById(int bookID) throws SQLException {
-        try(Connection connection = DatabaseConnector.getConnection()) {
-            String query = "SELECT id as `BookID`, title, author, publisher, price FROM Books WHERE id = ?";
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String query =
+                    "SELECT id as `BookID`, title, author, publisher, price FROM Books WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setInt(1, bookID);
 
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 return new Book(
                         resultSet.getInt("BookID"),
                         resultSet.getString("title"),

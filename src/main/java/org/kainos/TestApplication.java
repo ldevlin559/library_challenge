@@ -6,20 +6,19 @@ import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.kainos.controllers.BookController;
-import org.kainos.controllers.TestController;
 import org.kainos.daos.BookDao;
-import org.kainos.daos.TestDao;
 import org.kainos.services.BookService;
-import org.kainos.services.TestService;
 
 public class TestApplication extends Application<TestConfiguration> {
     public static void main(final String[] args) throws Exception {
         new TestApplication().run(args);
     }
+
     @Override
     public String getName() {
         return "Test";
     }
+
     @Override
     public void initialize(final Bootstrap<TestConfiguration> bootstrap) {
         bootstrap.addBundle(new SwaggerBundle<>() {
@@ -30,10 +29,12 @@ public class TestApplication extends Application<TestConfiguration> {
             }
         });
     }
+
     @Override
     public void run(final TestConfiguration configuration,
                     final Environment environment) {
-        environment.jersey().register(new BookController(new BookService(new BookDao())));
+        environment.jersey()
+                .register(new BookController(new BookService(new BookDao())));
     }
 
 }

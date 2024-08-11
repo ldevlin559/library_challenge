@@ -1,13 +1,17 @@
 package org.kainos.models;
 
 public class Book {
-    private int id;
-    private String title;
+    private final int id;
+    private final String title;
     private String author;
     private String publisher;
     private double price;
 
-    public Book(int id, String title, String author, String publisher, double price) {
+    public Book(final int id,
+                final String title,
+                final String author,
+                final String publisher,
+                final double price) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -15,7 +19,7 @@ public class Book {
         this.price = price;
     }
 
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
@@ -27,7 +31,7 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -35,7 +39,7 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(final String author) {
         this.author = author;
     }
 
@@ -43,7 +47,7 @@ public class Book {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(final String publisher) {
         this.publisher = publisher;
     }
 
@@ -51,7 +55,7 @@ public class Book {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 }
