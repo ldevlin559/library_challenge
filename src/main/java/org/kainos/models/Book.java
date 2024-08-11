@@ -7,7 +7,7 @@ public class Book {
     private String publisher;
     private double price;
 
-    public Book(int id,
+    public Book(final int id,
                 final String title,
                 final String author,
                 final String publisher,
