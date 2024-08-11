@@ -1,13 +1,13 @@
 package org.kainos.models;
 
 public class Book {
-    private final int id;
-    private final String title;
+    private int id;
+    private String title;
     private String author;
     private String publisher;
     private double price;
 
-    public Book(final int id,
+    public Book(int id,
                 final String title,
                 final String author,
                 final String publisher,
@@ -23,7 +23,7 @@ public class Book {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
