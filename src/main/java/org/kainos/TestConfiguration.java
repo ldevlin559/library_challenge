@@ -1,4 +1,4 @@
-package org.example;
+package org.kainos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
@@ -12,6 +12,7 @@ public class TestConfiguration extends Configuration {
     @NotNull
     private final SwaggerBundleConfiguration swagger =
             new SwaggerBundleConfiguration();
+
     @JsonProperty("swagger")
     public SwaggerBundleConfiguration getSwagger() {
         swagger.setResourcePackage("org.example.controllers");

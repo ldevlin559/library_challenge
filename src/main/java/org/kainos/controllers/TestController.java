@@ -1,7 +1,7 @@
-package org.example.controllers;
+package org.kainos.controllers;
 
 import io.swagger.annotations.Api;
-import org.example.services.TestService;
+import org.kainos.services.TestService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,9 +14,11 @@ import java.sql.SQLException;
 @Path("/api/test")
 public class TestController {
     TestService testService;
+
     public TestController(final TestService testService) {
         this.testService = testService;
     }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response testConnection() {
