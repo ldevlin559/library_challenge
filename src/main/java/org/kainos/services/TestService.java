@@ -1,6 +1,6 @@
-package org.example.services;
+package org.kainos.services;
 
-import org.example.daos.TestDao;
+import org.kainos.daos.TestDao;
 
 import java.sql.SQLException;
 import java.util.List;

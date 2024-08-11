@@ -1,7 +1,7 @@
-package org.example.controllers;
+package org.kainos.controllers;
 
 import io.swagger.annotations.Api;
-import org.example.services.TestService;
+import org.kainos.services.TestService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

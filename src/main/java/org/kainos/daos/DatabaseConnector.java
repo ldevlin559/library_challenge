@@ -1,4 +1,4 @@
-package org.example.daos;
+package org.kainos.daos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

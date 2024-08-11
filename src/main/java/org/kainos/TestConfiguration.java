@@ -1,4 +1,4 @@
-package org.example;
+package org.kainos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
