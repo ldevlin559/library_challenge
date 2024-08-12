@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDao {
+    private final int five = 5;
+    private final int four = 4;
+    private final int three = 3;
 
     public List<Book> getAllBooks() throws SQLException {
         List<Book> books = new ArrayList<>();
