@@ -1,6 +1,7 @@
 package org.kainos.daos;
 
 import org.kainos.models.Book;
+import org.kainos.models.BookRequest;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDao {
+    private final int five = 5;
+    private final int four = 4;
+    private final int three = 3;
 
     public List<Book> getAllBooks() throws SQLException {
         List<Book> books = new ArrayList<>();
@@ -57,5 +61,21 @@ public class BookDao {
             }
         }
         return null;
+    }
+
+    public void updateBook(final int id, final BookRequest book)
+            throws SQLException {
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String updateStatement = "UPDATE Books SET title = ?, author = ?,"
+                    + "publisher = ?, price = ? WHERE id = ?";
+            PreparedStatement statement =
+                    connection.prepareStatement(updateStatement);
+            statement.setString(1, "title");
+            statement.setString(2, "author");
+            statement.setString(three, "publisher");
+            statement.setDouble(four, Double.parseDouble("price"));
+            statement.setInt(five, id);
+            statement.executeUpdate();
+        }
     }
 }
