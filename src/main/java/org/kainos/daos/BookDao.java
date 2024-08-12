@@ -58,4 +58,9 @@ public class BookDao {
         }
         return null;
     }
+
+    public void updateBook(int id, final BookRequest book) throws SQLException {
+        try (Connection connection = DatabaseConnector.getConnection()) {
+        }
+    }
 }
