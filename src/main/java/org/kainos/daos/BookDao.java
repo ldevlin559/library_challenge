@@ -72,9 +72,9 @@ public class BookDao {
                     connection.prepareStatement(updateStatement);
             statement.setString(1, "title");
             statement.setString(2, "author");
-            statement.setString(3, "publisher");
-            statement.setDouble(4, Double.parseDouble("price"));
-            statement.setInt(5, id);
+            statement.setString(three, "publisher");
+            statement.setDouble(four, Double.parseDouble("price"));
+            statement.setInt(five, id);
             statement.executeUpdate();
         }
     }
