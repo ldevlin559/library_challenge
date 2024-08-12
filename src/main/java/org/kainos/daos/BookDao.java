@@ -81,9 +81,11 @@ public class BookDao {
 
     public int createBook(final BookRequest book) throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
-            String insertStatement = "INSERT INTO Books (title, author, publisher, price) "
+            String insertStatement = "INSERT INTO Books (title, author,"
+                    + " publisher, price) "
                     + "VALUES (?, ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(insertStatement);
+            PreparedStatement statement = connection
+                    .prepareStatement(insertStatement);
 
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getAuthor());

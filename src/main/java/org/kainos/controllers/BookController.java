@@ -50,7 +50,8 @@ public class BookController {
         } catch (DoesNotExistException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         } catch (SQLException e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(Response.Status
+                    .INTERNAL_SERVER_ERROR).build();
         }
     }
 
