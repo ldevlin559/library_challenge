@@ -78,4 +78,26 @@ public class BookDao {
             statement.executeUpdate();
         }
     }
+
+    public int createBook(final BookRequest book) throws SQLException {
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String insertStatement = "INSERT INTO Books (title, author, publisher, price) "
+                    + "VALUES (?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(insertStatement);
+
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setString(three, book.getPublisher());
+            statement.setDouble(four, book.getPrice());
+
+            statement.executeUpdate();
+
+            ResultSet resultSet = statement.getGeneratedKeys();
+
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        }
+        return -1;
+    }
 }
