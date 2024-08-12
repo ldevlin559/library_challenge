@@ -60,8 +60,19 @@ public class BookDao {
         return null;
     }
 
-    public void updateBook(final int id, final BookRequest book) throws SQLException {
+    public void updateBook(final int id, final BookRequest book)
+            throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
+            String updateStatement = "UPDATE Books SET title = ?, author = ?,"
+                    + "publisher = ?, price = ? WHERE id = ?";
+            PreparedStatement statement =
+                    connection.prepareStatement(updateStatement);
+            statement.setString(1, "title");
+            statement.setString(2, "author");
+            statement.setString(3, "publisher");
+            statement.setDouble(4, Double.parseDouble("price"));
+            statement.setInt(5, id);
+            statement.executeUpdate();
         }
     }
 }
