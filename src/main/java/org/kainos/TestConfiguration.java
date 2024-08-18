@@ -15,7 +15,7 @@ public class TestConfiguration extends Configuration {
 
     @JsonProperty("swagger")
     public SwaggerBundleConfiguration getSwagger() {
-        swagger.setResourcePackage("org.example.controllers");
+        swagger.setResourcePackage("org.kainos.controllers");
         String[] schemes = {"http", "https"};
         swagger.setSchemes(schemes);
         return swagger;

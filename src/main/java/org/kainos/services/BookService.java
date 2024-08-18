@@ -46,4 +46,17 @@ public class BookService {
         }
         return id;
     }
+
+    public void deleteBook(final int id)
+            throws SQLException, DoesNotExistException {
+        Book bookToDelete = bookDao.getBookById(id);
+
+        if (bookToDelete == null) {
+            throw new DoesNotExistException(Entity.BOOK);
+        }
+
+        bookDao.deleteBook(id);
+
+
+    }
 }
