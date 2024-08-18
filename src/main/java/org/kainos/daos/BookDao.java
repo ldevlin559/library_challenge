@@ -105,7 +105,8 @@ public class BookDao {
     public void deleteBook(final int bookID) throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String deleteStatement = "DELETE FROM Books WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(deleteStatement);
+            PreparedStatement statement = connection.prepareStatement(
+                    deleteStatement);
             statement.setInt(1, bookID);
             statement.executeUpdate();
         }
